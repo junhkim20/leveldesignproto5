@@ -18,7 +18,7 @@ namespace Supercyan.AnimalPeopleSample
         }
 
         [SerializeField] private float m_moveSpeed = 2;
-        [SerializeField] private float m_turnSpeed = 200;
+        [SerializeField] private float m_turnSpeed = 10;
         [SerializeField] private float m_jumpForce = 4;
 
         [SerializeField] private Animator m_animator = null;
@@ -144,12 +144,13 @@ namespace Supercyan.AnimalPeopleSample
 
             bool walk = Input.GetKey(KeyCode.LeftShift);
 
-            if (v < 0)
-            {
-                if (walk) { v *= m_backwardsWalkScale; }
-                else { v *= m_backwardRunScale; }
-            }
-            else if (walk)
+            // if (v < 0)
+            // {
+            //     if (walk) { v *= m_backwardsWalkScale; }
+            //     else { v *= m_backwardRunScale; }
+            // }
+            // else if (walk)
+            if(walk)
             {
                 v *= m_walkScale;
             }
@@ -158,7 +159,7 @@ namespace Supercyan.AnimalPeopleSample
             m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
             transform.position += transform.forward * m_currentV * m_moveSpeed * Time.deltaTime;
-            transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, m_currentH * 1 * Time.deltaTime, 0);
 
             m_animator.SetFloat("MoveSpeed", m_currentV);
 
