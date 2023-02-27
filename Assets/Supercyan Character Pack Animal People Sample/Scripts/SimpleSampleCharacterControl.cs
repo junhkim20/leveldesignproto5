@@ -159,7 +159,7 @@ namespace Supercyan.AnimalPeopleSample
             m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
             transform.position += transform.forward * m_currentV * m_moveSpeed * Time.deltaTime;
-            transform.Rotate(0, m_currentH * 1 * Time.deltaTime, 0);
+            transform.Rotate(0, m_currentH * 1 * Time.deltaTime * 0.125f, 0);
 
             m_animator.SetFloat("MoveSpeed", m_currentV);
 
