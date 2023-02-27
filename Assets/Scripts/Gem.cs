@@ -15,4 +15,12 @@ public class Gem : MonoBehaviour
     {
         transform.Rotate(0f, 40f * Time.deltaTime, 0f, Space.Self);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player") {
+            Object.Destroy(this.gameObject);
+            Global.gemCount += 1; 
+        }
+    }
 }
