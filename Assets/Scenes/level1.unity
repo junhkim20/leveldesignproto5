@@ -3491,6 +3491,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7324205935189930529, guid: 7d1db3364b07c3c4a8435f2258c5cd1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324205935189930529, guid: 7d1db3364b07c3c4a8435f2258c5cd1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324205935189930529, guid: 7d1db3364b07c3c4a8435f2258c5cd1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7324205936667548966, guid: 7d1db3364b07c3c4a8435f2258c5cd1e, type: 3}
       propertyPath: m_Name
       value: Enemy
