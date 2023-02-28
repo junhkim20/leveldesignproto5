@@ -4979,7 +4979,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.90961653, b: 0.745283, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6805,9 +6805,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1910507832}
   smoothSpeed: 0.125
-  offset: {x: 0, y: -1.5, z: 3}
+  offset: {x: 0, y: -1.2, z: 3}
   offsetPositionSpace: 1
-  lookAt: 1
+  lookAt: 0
 --- !u!81 &1507140514
 AudioListener:
   m_ObjectHideFlags: 0
