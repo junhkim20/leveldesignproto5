@@ -24,19 +24,14 @@ namespace BrokenVector.LowPolyFencePack
 
 	    void OnCollisionEnter(Collision collision)
 	    {
-            if(collision.gameObject.tag == "Player"){
-                if(Global.level == 0 && Global.gemCount == 3){
-                    doorController.ToggleDoor();
+            if(GameObject.FindGameObjectsWithTag("Gem").Length == 0){
                     Global.gemCount = 0; 
-                    StartCoroutine(NextLevelAfterWait()); 
                     Global.level += 1; 
+                if(Global.level == 1){
+                    SceneManager.LoadScene("level2");
                 }
-
-                if(Global.level ==1 && Global.gemCount == 6){
-                    doorController.ToggleDoor();
-                    Global.gemCount = 0; 
-                    StartCoroutine(NextLevelAfterWait()); 
-                    Global.level += 1; 
+                else{
+                    SceneManager.LoadScene("endscreen");
                 }
             }
 	    }

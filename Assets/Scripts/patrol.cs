@@ -23,6 +23,7 @@ public class patrol : MonoBehaviour
     void Update()
     {
         if(!playerSeen){            
+            agent.destination = waypoints[currentWaypoint].position;
             if (agent.remainingDistance < 0.5f)
             {
                 currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
@@ -35,8 +36,10 @@ public class patrol : MonoBehaviour
     }
 
     public void seePlayer(){
-        playerSeen = true;
-        agent.destination = player.transform.position;
+        playerSeen = Vector3.Distance(transform.position, player.position) < 10;
+        if (playerSeen) {
+            agent.destination = player.transform.position;
+        }
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.position - player.position, out hit)){
             print(hit.collider.tag);
