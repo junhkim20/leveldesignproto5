@@ -32,7 +32,10 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            transform.rotation = target.rotation;
+            Debug.Log("HERE");
+            var angles = target.rotation.eulerAngles;
+            angles.y += Time.deltaTime * 5;
+            transform.rotation = Quaternion.Euler(angles);
         }
     }
 }
