@@ -35,13 +35,13 @@ public class patrol : MonoBehaviour
     }
 
     public void seePlayer(){
-        print("player seen");
-        RaycastHit hit;
-        agent.destination = player.transform.position;
         playerSeen = true;
+        agent.destination = player.transform.position;
+        RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.position - player.position, out hit)){
-            
+            print(hit.collider.tag);
             if(hit.collider.tag == "Player"){
+                print("player hit");
                 agent.destination = player.transform.position;
                 playerSeen = true;
             }
@@ -54,10 +54,13 @@ public class patrol : MonoBehaviour
             if(playerSeen){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            else{
-                Destroy(this.gameObject);
-            }
             print("player hit");
+        }
+    }
+
+    public void finish(){
+        if(!playerSeen){
+            Destroy(this.gameObject);
         }
     }
 }

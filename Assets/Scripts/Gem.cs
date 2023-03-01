@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
+    public AudioSource audioSource;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,13 @@ public class Gem : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player") {
-            Object.Destroy(this.gameObject);
             Global.gemCount += 1; 
+            if(GameObject.FindGameObjectsWithTag("Gem").Length == 1){
+                BrokenVector.LowPolyFencePack.DoorController doorController = GameObject.FindGameObjectWithTag("Gate").GetComponent<BrokenVector.LowPolyFencePack.DoorController>();
+                doorController.OpenDoor();
+                doorController.GetComponent<AudioSource>().Play();
+            }
+            Object.Destroy(this.gameObject);
         }
     }
 }
